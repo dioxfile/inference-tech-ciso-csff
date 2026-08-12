@@ -1,195 +1,108 @@
-# inference-tech-ciso-csff
-CISO-CSFF — Intelligent cybersecurity risk assessment SaaS powered by Hierarchical Fuzzy Logic, CIS Controls v8.1, and ISO/IEC 27002:2022.
-```{=html}
-<p align="center">
-```
-`<img src="assets/images/inference-tech-logo.png" alt="Inference Tech" width="720">`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}Proprietary Cybersecurity Technology by Inference
-Tech`</strong>`{=html}
-```{=html}
-</p>
-```
-
-------------------------------------------------------------------------
+![Inference Tech](assets/images/inference-tech-logo.png)
 
 # CISO-CSFF
 
 ### Cybersecurity Framework Fuzzy Inference System
 
-**Cybersecurity Risk Assessment powered by Hierarchical Fuzzy Logic**
+**Intelligent Cybersecurity Risk Assessment powered by Hierarchical
+Fuzzy Logic**
 
 CISO-CSFF is a proprietary **Software as a Service (SaaS)** platform for
 cybersecurity risk assessment, security governance, and decision
-support.
+support. It combines **CIS Controls v8.1** and **ISO/IEC 27002:2022**
+with hierarchical fuzzy inference to transform security-control maturity
+into contextualized cybersecurity risk indicators.
 
-The platform combines internationally recognized cybersecurity
-frameworks with a hierarchical fuzzy inference methodology to transform
-security-control maturity information into quantitative cybersecurity
-risk indicators.
+**Assessment models:** CIS Controls v8.1 · ISO/IEC 27002:2022 · Hybrid
+CIS + ISO
 
-CISO-CSFF currently supports:
-
--   **CIS Controls v8.1**
--   **ISO/IEC 27002:2022**
--   **Hybrid CIS + ISO Assessment**
-
-The Hybrid assessment consolidates the perspectives of both frameworks
-into a unified cybersecurity risk indicator.
-
-> **Proprietary SaaS Technology**\
-> This public repository contains product documentation, scientific
-> information, demonstrations, and public technical material. The
-> CISO-CSFF source code, proprietary inference models, rule bases,
-> internal algorithms, and infrastructure configuration are not
-> distributed through this repository.
+> **Proprietary SaaS Technology**  
+> This repository provides public product documentation, scientific
+> information, demonstrations, and institutional material. Source code,
+> proprietary fuzzy models, rule bases, internal algorithms, and
+> infrastructure configuration are not publicly distributed.
 
 ------------------------------------------------------------------------
 
-## What is CISO-CSFF?
+## Overview
 
-Traditional cybersecurity assessments frequently rely on binary
-checklists, compliance percentages, or qualitative risk matrices.
+Traditional cybersecurity assessments often rely on binary checklists,
+compliance percentages, or qualitative risk matrices. These approaches
+may hide critical weaknesses when strong results in some domains
+compensate numerically for serious deficiencies in others.
 
-Although useful, these approaches may not adequately represent
-situations in which an organization has a high overall level of
-compliance but still presents critical weaknesses in specific security
-domains.
+CISO-CSFF addresses this limitation through **Hierarchical Fuzzy
+Inference Systems (HFS)**. The platform distinguishes security maturity
+from inferred cybersecurity risk and provides framework-specific as well
+as consolidated risk indicators.
 
-CISO-CSFF was developed to address this problem.
+### Maturity is not Risk
 
-Instead of treating cybersecurity risk as a simple arithmetic inverse of
-compliance, the platform uses **Fuzzy Logic and Hierarchical Fuzzy
-Inference Systems** to analyze how different security-control maturity
-levels interact.
-
-The result is a contextualized representation of organizational
-cybersecurity risk designed to support security governance and
-decision-making.
-
-------------------------------------------------------------------------
-
-## Maturity is not Risk
-
-A central concept of CISO-CSFF is the distinction between:
-
-### Security Maturity
-
-A quantitative measure representing the level of implementation or
+**Security Maturity** represents the level of implementation or
 adherence to evaluated security controls.
 
-### Fuzzy Risk
+**Fuzzy Risk** is an inferred cybersecurity risk indicator produced by
+the fuzzy inference process.
 
-A cybersecurity risk indicator generated through the fuzzy inference
-process.
+> **Risk ≠ 100 − Maturity**
 
-Therefore:
-
-``` text
-Risk ≠ 100 − Maturity
-```
-
-Two organizations with similar maturity percentages may present
-significantly different risk profiles depending on which security
-controls are absent, weak, or critically deficient.
-
-CISO-CSFF is designed to capture this distinction.
+Two organizations with similar maturity percentages may therefore
+present different risk profiles depending on which controls or security
+domains are deficient.
 
 ------------------------------------------------------------------------
 
-## Assessment Modes
+## Assessment Models
 
 ### CIS Controls v8.1
 
-Assessment based on the practical and prioritized cybersecurity controls
-defined by the Center for Internet Security.
-
-The CISO-CSFF hierarchical model processes control-level information
-through multiple inference stages to generate a consolidated **CIS
-Risk** indicator.
+The CIS model evaluates security-control maturity according to **CIS
+Controls v8.1**. Its hierarchical fuzzy architecture processes
+control-level information through multiple inference stages and produces
+the final **CIS Risk** indicator.
 
 ### ISO/IEC 27002:2022
 
-Assessment based on the information-security controls defined by ISO/IEC
-27002:2022.
-
-The platform evaluates security maturity across organizational, people,
-physical, and technological control domains and generates an **ISO
+The ISO model evaluates information-security controls according to
+**ISO/IEC 27002:2022**, considering organizational, people, physical,
+and technological control domains. The model produces the final **ISO
 Risk** indicator.
 
 ### Hybrid CIS + ISO
 
-The Hybrid model integrates the risk perspectives produced by the CIS
-and ISO assessments.
-
-Conceptually:
+The Hybrid model operates at a higher inference level. It **does not
+directly receive the individual CIS or ISO controls**. Instead, it
+receives the final risk indicators independently produced by the CIS and
+ISO models:
 
 ``` text
-CIS Controls v8.1
-        │
-        ▼
-   Fuzzy Model (CIS)
-        │
-        ▼
-    CIS Risk ─────────────┐
-                          │
-                          ▼
-                   ┌──────────────┐
-                   │ Hybrid Fuzzy │
-                   │    Model     │
-                   └──────┬───────┘
-                          │
-                          ▼
-                     Global Risk
-                          ▲
-                          │
-    ISO Risk ─────────────┘
-        ▲
-        │
-   Fuzzy Model (ISO)
-        ▲
-        │
-ISO/IEC 27002:2022
+CIS Controls v8.1 ──► CIS Fuzzy Model ──► CIS Risk ──┐
+                                                     ├──► Hybrid Fuzzy Model ──► Global Risk
+ISO/IEC 27002:2022 ─► ISO Fuzzy Model ──► ISO Risk ──┘
 ```
 
-This approach enables organizations to obtain framework-specific
-indicators and a consolidated cybersecurity risk perspective.
+Thus, **CIS Risk** and **ISO Risk** are the input variables of the
+Hybrid Fuzzy Model, whose output is the consolidated **Global Risk**.
 
 ------------------------------------------------------------------------
 
 ## Hierarchical Fuzzy Intelligence
 
-CISO-CSFF uses a **Hierarchical Fuzzy System (HFS)** rather than relying
-exclusively on a single monolithic inference model.
+CISO-CSFF uses hierarchical fuzzy inference to decompose complex
+cybersecurity assessments into interconnected inference stages rather
+than concentrating all variables in a single monolithic rule base.
 
-Security indicators are processed through interconnected fuzzy inference
-stages. This architecture supports:
+This architecture supports:
 
--   reduced rule-base complexity;
--   scalability;
--   interpretability;
--   modular risk processing;
--   diagnostic visibility across security domains;
--   multi-framework cybersecurity assessment.
+- modular and scalable risk processing;
+- greater interpretability of intermediate results;
+- reduced rule-base complexity;
+- diagnostic visibility across security domains;
+- integration of multiple cybersecurity frameworks.
 
-------------------------------------------------------------------------
-
-## Non-Compensatory Risk Assessment
-
-Cybersecurity risk should not necessarily be reduced simply because an
-organization performs well in unrelated security domains.
-
-Strong performance in one domain should not automatically neutralize a
-critical deficiency in another.
-
-CISO-CSFF therefore incorporates a **non-compensatory risk philosophy**,
-designed to reduce artificially optimistic risk indicators caused by
-simple arithmetic averaging.
+The methodology also incorporates a **non-compensatory risk approach**,
+so strong performance in one security domain does not automatically
+neutralize a critical weakness in another.
 
 ------------------------------------------------------------------------
 
@@ -199,390 +112,215 @@ CISO-CSFF originates from academic research in cybersecurity risk
 assessment, fuzzy logic, and decision-support systems.
 
 The CIS, ISO, and Hybrid models were computationally evaluated using
-**5,000 randomly generated scenarios for each assessment model**.
-
-The validation examined characteristics including:
-
--   statistical behavior of outputs;
--   minimum and maximum risk values;
--   mean and standard deviation;
--   output distribution;
--   model sensitivity;
--   behavior in extreme scenarios;
--   inference consistency;
--   robustness of the fuzzy models.
+**5,000 randomly generated scenarios for each assessment model**. The
+validation examined output distributions, minimum and maximum values,
+mean, standard deviation, sensitivity to input variations, behavior in
+extreme scenarios, inference consistency, and model robustness.
 
 ### Research Paper
 
-**CIS Controls and ISO/IEC 27002 -- Cybersecurity Fuzzy Framework
+**CIS Controls and ISO/IEC 27002 – Cybersecurity Fuzzy Framework
 (CISO-CSFF): A New Hierarchical Fuzzy Inference System Approach for
 Security Risk Assessment**
 
-**Authors**
+**Authors:** Bruno Hernandes Carrilho Martins · Diógenes Antonio Marques
+José · Armando da Silva Filho  
+**Institution:** State University of Mato Grosso — UNEMAT, Brazil
 
--   Bruno Hernandes Carrilho Martins
--   Diógenes Antonio Marques José
--   Armando da Silva Filho
-
-**Institution**
-
-State University of Mato Grosso --- UNEMAT, Brazil
-
-Official bibliographic information and citation data will be updated
-according to the definitive publication record.
+Official bibliographic information will be added according to the
+definitive publication record.
 
 ------------------------------------------------------------------------
 
-## Cybersecurity Governance and LGPD Context
+## Platform Screens and Usage
 
-CISO-CSFF can support cybersecurity governance initiatives involving CIS
-Controls v8.1, ISO/IEC 27002:2022, ISO/IEC 27001, information-security
-maturity assessment, GRC activities, and cybersecurity risk management.
+The following screens illustrate the main access and organizational
+setup flow of the CISO-CSFF SaaS platform.
 
-In Brazil, the platform can assist organizations in evaluating technical
-and organizational security practices associated with data-protection
-governance and the security measures expected under the **Lei Geral de
-Proteção de Dados (LGPD)**.
+### Home
 
-CISO-CSFF is a **decision-support and cybersecurity risk-assessment
-platform**. Its results do not, by themselves, constitute legal
-certification, regulatory approval, ISO certification, or an independent
-cybersecurity audit.
+Public presentation of CISO-CSFF, its cybersecurity assessment proposal,
+supported frameworks, and platform access.
 
-------------------------------------------------------------------------
-
-## Screens and Platform Usage
-
-This section presents the main screens and a high-level usage flow of
-the CISO-CSFF SaaS platform.
-
-> **Image organization:** place public screenshots in
-> `assets/screenshots/`. The links below are already prepared for these
-> filenames. Replace each placeholder file with the corresponding
-> screenshot when it is ready.
-
-### 1. Home
-
-The public Home page introduces CISO-CSFF, its purpose, supported
-cybersecurity frameworks, and access to the platform.
-
-[View Home screen](assets/screenshots/home.png)
-
-``` markdown
 ![CISO-CSFF Home](assets/screenshots/home.png)
-```
 
-### 2. Login
+### Login
 
-The Login screen provides access to the SaaS environment for registered
-and authorized users.
+Secure access for registered and authorized platform users.
 
-[View Login screen](assets/screenshots/login.png)
-
-``` markdown
 ![CISO-CSFF Login](assets/screenshots/login.png)
-```
 
-### 3. User Registration
+### User Registration
 
-The Registration screen supports the creation of an account for access
-to the platform according to the applicable service and authorization
-rules.
+Account registration for access to the CISO-CSFF environment.
 
-[View Registration screen](assets/screenshots/cadastro.png)
-
-``` markdown
 ![CISO-CSFF User Registration](assets/screenshots/cadastro.png)
-```
 
-### 4. Framework Selection
+### Framework Selection
 
-After accessing the platform, the user can select the cybersecurity
-assessment model to be used:
+Selection of the assessment model: **CIS Controls v8.1**, **ISO/IEC
+27002:2022**, or **Hybrid CIS + ISO**.
 
--   CIS Controls v8.1;
--   ISO/IEC 27002:2022;
--   Hybrid CIS + ISO.
+![CISO-CSFF Framework
+Selection](assets/screenshots/escolha-framework.png)
 
-[View Framework Selection
-screen](assets/screenshots/escolha-framework.png)
+### Organization
 
-``` markdown
-![CISO-CSFF Framework Selection](assets/screenshots/escolha-framework.png)
-```
+Registration and selection of the organization to which cybersecurity
+assessments will be associated.
 
-### 5. Adding an Organization
+![CISO-CSFF Organization](assets/screenshots/adicionar-organizacao.png)
 
-The organization structure allows assessments to be associated with the
-organizational context being evaluated.
+### Unit
 
-[View Add Organization
-screen](assets/screenshots/adicionar-organizacao.png)
+Registration of organizational units for structured assessment across
+different components of the organization.
 
-``` markdown
-![CISO-CSFF - Add Organization](assets/screenshots/adicionar-organizacao.png)
-```
+![CISO-CSFF Unit](assets/screenshots/adicionar-unidade.png)
 
-### 6. Adding a Unit
+### Entity
 
-Units can be associated with an organization to support structured
-assessments across different organizational components.
+Registration of entities associated with the organizational assessment
+context.
 
-[View Add Unit screen](assets/screenshots/adicionar-unidade.png)
-
-``` markdown
-![CISO-CSFF - Add Unit](assets/screenshots/adicionar-unidade.png)
-```
-
-### 7. Adding an Entity
-
-Entities can be registered within the platform's organizational
-structure according to the assessment context.
-
-[View Add Entity screen](assets/screenshots/adicionar-entidade.png)
-
-``` markdown
-![CISO-CSFF - Add Entity](assets/screenshots/adicionar-entidade.png)
-```
-
-### Suggested Public Screenshot Structure
-
-``` text
-assets/
-└── screenshots/
-    ├── home.png
-    ├── login.png
-    ├── cadastro.png
-    ├── escolha-framework.png
-    ├── adicionar-organizacao.png
-    ├── adicionar-unidade.png
-    └── adicionar-entidade.png
-```
-
-As the public documentation evolves, additional screens can be added for
-assessment execution, dashboards, risk results, reports, and
-administrative workflows.
+![CISO-CSFF Entity](assets/screenshots/adicionar-entidade.png)
 
 ------------------------------------------------------------------------
 
 ## Demonstrations
 
-Public demonstration videos will be progressively released.
+Demonstration videos will be progressively published to present the main
+CISO-CSFF workflows, including platform access, organizational
+configuration, CIS assessment, ISO assessment, Hybrid assessment, risk
+interpretation, and results.
 
-  -----------------------------------------------------------------------
-  Demonstration           Description             Status
-  ----------------------- ----------------------- -----------------------
-  Platform Overview       Introduction to the     Coming soon
-                          CISO-CSFF SaaS          
-                          environment             
+------------------------------------------------------------------------
 
-  Account and Access      Registration and        Coming soon
-                          platform access         
+## Cybersecurity Governance and LGPD
 
-  Organizational          Organization, Unit, and Coming soon
-  Structure               Entity workflow         
+CISO-CSFF can support cybersecurity governance initiatives involving
+**CIS Controls v8.1**, **ISO/IEC 27002:2022**, **ISO/IEC 27001**,
+information-security maturity assessment, GRC activities, and
+cybersecurity risk management.
 
-  CIS Assessment          CIS Controls v8.1       Coming soon
-                          assessment workflow     
+In Brazil, the platform can assist organizations in evaluating technical
+and organizational security practices associated with data-protection
+governance and security measures related to the **Lei Geral de Proteção
+de Dados (LGPD)**.
 
-  ISO Assessment          ISO/IEC 27002:2022      Coming soon
-                          assessment workflow     
-
-  Hybrid Assessment       Combined CIS and ISO    Coming soon
-                          assessment              
-
-  Risk Interpretation     Maturity and fuzzy-risk Coming soon
-                          interpretation          
-
-  Results and Reports     Assessment results and  Coming soon
-                          reporting               
-  -----------------------------------------------------------------------
+> CISO-CSFF is a cybersecurity risk-assessment and decision-support
+> platform. Its results do not, by themselves, constitute legal
+> certification, regulatory approval, ISO certification, or an
+> independent cybersecurity audit.
 
 ------------------------------------------------------------------------
 
 ## Intellectual Property
 
-CISO-CSFF is a **proprietary cybersecurity technology** developed from
-research conducted at the **State University of Mato Grosso --- UNEMAT,
-Brazil**.
+CISO-CSFF is proprietary technology developed from research conducted at
+the **State University of Mato Grosso — UNEMAT, Brazil**.
 
 ### Registered Computer Program
 
 The CISO-CSFF software is officially registered with the **Brazilian
 National Institute of Industrial Property (INPI)**.
 
-  ---------------------------------------------------------------------
-  Information                        Registration
-  ---------------------------------- ----------------------------------
-  **Title**                          CIS Controls and ISO/IEC 27002 -
-                                     Cybersecurity Fuzzy Framework
-                                     (CISO-CSFF)
+| Information            | Registration                                                               |
+|------------------------|----------------------------------------------------------------------------|
+| **Title**              | CIS Controls and ISO/IEC 27002 - Cybersecurity Fuzzy Framework (CISO-CSFF) |
+| **INPI Registration**  | **BR512026005357-9**                                                       |
+| **Creation Date**      | April 1, 2026                                                              |
+| **Certificate Issued** | July 14, 2026                                                              |
+| **Rights Holder**      | Universidade do Estado de Mato Grosso — UNEMAT                             |
+| **Authors**            | Diógenes Antonio Marques José; Bruno Hernandes Carrilho Martins            |
+| **Protection**         | Computer Program Registration — Brazil                                     |
 
-  **INPI Registration**              **BR512026005357-9**
-
-  **Creation Date**                  April 1, 2026
-
-  **Certificate Issued**             July 14, 2026
-
-  **Rights Holder**                  Universidade do Estado de Mato
-                                     Grosso --- UNEMAT
-
-  **Authors**                        Diógenes Antonio Marques José;
-                                     Bruno Hernandes Carrilho Martins
-
-  **Protection**                     Computer Program Registration ---
-                                     Brazil
-  ---------------------------------------------------------------------
-
-The registration provides legal protection for the computer program
-under Brazilian software intellectual-property legislation.
+[View the INPI Software Registration
+Certificate](docs/intellectual-property/REGISTRO-CISO-CSFF-INPI.pdf)
 
 ### Patent-Pending Computational Method
 
 In addition to the registered software, the computational method
-underlying CISO-CSFF is the subject of a **patent application**
-involving its cybersecurity risk-assessment methodology.
+underlying CISO-CSFF is the subject of a **patent application** related
+to its cybersecurity risk-assessment methodology.
 
 The technological approach includes hierarchical processing of
-cybersecurity-control indicators, framework-specific risk assessment,
-consolidated risk assessment, and mechanisms for non-compensatory
-treatment of relevant security weaknesses.
+cybersecurity-control indicators, independent generation of **CIS Risk**
+and **ISO Risk**, and higher-level fuzzy processing of these indicators
+to produce **Global Risk**, together with mechanisms for
+non-compensatory treatment of relevant security weaknesses.
 
-> **CISO-CSFF is proprietary technology.** Public availability of this
-> repository does not constitute publication or licensing of the
-> platform's source code, proprietary inference models, fuzzy rule
-> bases, internal algorithms, or other protected implementation
-> components.
-
-------------------------------------------------------------------------
-
-## Intended Users
-
-CISO-CSFF is designed for professionals and organizations involved in
-cybersecurity and information-security governance, including:
-
--   Chief Information Security Officers --- CISOs;
--   information-security managers;
--   cybersecurity teams;
--   GRC professionals;
--   risk managers;
--   security consultants;
--   internal audit teams;
--   public and private organizations;
--   research and educational institutions.
+> Public availability of this repository does not grant permission to
+> reproduce, modify, reverse engineer, redistribute, sublicense, or
+> commercially exploit the CISO-CSFF software, proprietary inference
+> models, rule bases, algorithms, or protected computational methods.
 
 ------------------------------------------------------------------------
 
 ## Software as a Service
 
-CISO-CSFF is provided as a **web-based SaaS platform**.
+CISO-CSFF is delivered as a **web-based SaaS platform**. Users access
+the assessment environment through the web interface while proprietary
+computational models remain protected within the service infrastructure.
 
-Users interact with the cybersecurity assessment environment through a
-web interface while proprietary inference models and computational
-methods remain protected within the service infrastructure.
-
-No local installation or access to the CISO-CSFF source code is required
-for normal platform use.
+No local installation or source-code access is required for normal use.
 
 ------------------------------------------------------------------------
 
 ## Current Status
 
-  Item                          Status
-  ----------------------------- --------------------------
-  **Product Type**              SaaS
-  **Platform**                  Web
-  **Development Stage**         Pre-commercial
-  **Current Availability**      Controlled testing
-  **Commercial Availability**   Planned for October 2026
-  **Software Registration**     INPI BR512026005357-9
-  **Computational Method**      Patent application filed
+| Item                      | Status                   |
+|---------------------------|--------------------------|
+| **Product**               | CISO-CSFF                |
+| **Delivery Model**        | SaaS                     |
+| **Platform**              | Web                      |
+| **Current Availability**  | Controlled testing       |
+| **Commercial Release**    | Planned for October 2026 |
+| **Software Registration** | INPI BR512026005357-9    |
+| **Computational Method**  | Patent application filed |
 
 ------------------------------------------------------------------------
 
-## Public Repository Policy
+## Intended Users
 
-This repository is intentionally focused on **public product and
-scientific documentation**.
-
-It may contain:
-
--   product documentation;
--   conceptual architecture diagrams;
--   public screenshots;
--   demonstration videos;
--   scientific publications and references;
--   methodological descriptions at an appropriate public level;
--   public release information.
-
-It does **not** distribute:
-
--   application source code;
--   proprietary fuzzy models;
--   fuzzy rule bases;
--   inference files;
--   internal APIs;
--   infrastructure configuration;
--   deployment procedures;
--   security credentials;
--   confidential internal technical documentation.
+CISO-CSFF is designed for organizations and professionals involved in
+cybersecurity governance and risk management, including CISOs,
+information-security managers, cybersecurity teams, GRC professionals,
+risk managers, consultants, internal audit teams, public and private
+organizations, and research or educational institutions.
 
 ------------------------------------------------------------------------
 
-## Source Code and Licensing
+## Proprietary Software and Licensing
 
-CISO-CSFF is **not an open-source project**.
+CISO-CSFF is **not an open-source project**. No source-code license is
+granted through this repository.
 
-No source-code license is granted through this repository. Access to the
-software is provided through the official SaaS platform under the
-applicable commercial terms.
-
-Scientific publications and third-party standards or frameworks
-referenced by this project remain subject to their respective rights and
-licensing conditions.
+Access to the software is provided through the official SaaS platform
+under applicable commercial terms. Scientific publications and
+third-party standards or frameworks referenced by the project remain
+subject to their respective rights and licensing conditions.
 
 ------------------------------------------------------------------------
 
 ## Security
 
-Security vulnerabilities or suspected security issues should not be
-publicly disclosed through GitHub Issues.
-
-A responsible security-disclosure channel will be provided through the
-official CISO-CSFF contact channels.
-
-------------------------------------------------------------------------
-
-## Documentation
-
-Additional public documentation can be organized in the `docs/`
-directory:
-
-``` text
-docs/
-├── overview.md
-├── methodology.md
-├── scientific-validation.md
-├── cis-controls.md
-├── iso-27002.md
-├── hybrid-model.md
-├── lgpd.md
-├── intellectual-property.md
-└── faq.md
-```
+Potential security vulnerabilities should not be disclosed through
+public GitHub Issues. Responsible-disclosure contact information will be
+provided through the official CISO-CSFF channels.
 
 ------------------------------------------------------------------------
 
 ## Commercial Availability
 
-CISO-CSFF is currently undergoing controlled testing and preparation for
+CISO-CSFF is currently in controlled testing and preparation for
 commercial availability.
 
 **Commercial release is planned for October 2026.**
 
-Information regarding SaaS subscriptions, institutional plans,
+Information about SaaS subscriptions, institutional plans,
 demonstrations, pilot projects, partnerships, and commercial access will
-be announced through the official project channels.
+be published through the official project channels.
 
 ------------------------------------------------------------------------
 
@@ -590,18 +328,16 @@ be announced through the official project channels.
 
 For institutional partnerships, research collaboration, technology
 transfer, pilot projects, and commercial inquiries, please use the
-official CISO-CSFF contact channels.
+official CISO-CSFF / Inference Tech contact channels.
 
 ------------------------------------------------------------------------
 
-## CISO-CSFF
+### CISO-CSFF
 
-### From Security Maturity to Intelligent Cybersecurity Risk Assessment
+**From Security Maturity to Intelligent Cybersecurity Risk Assessment**
 
-**Hierarchical Fuzzy Logic · CIS Controls v8.1 · ISO/IEC 27002:2022 ·
-Cybersecurity Risk · Decision Support**
+*Hierarchical Fuzzy Logic · CIS Controls v8.1 · ISO/IEC 27002:2022 ·
+Cybersecurity Risk · Decision Support*
 
-------------------------------------------------------------------------
-
-© 2026 Universidade do Estado de Mato Grosso --- UNEMAT. CISO-CSFF. All
+© 2026 Universidade do Estado de Mato Grosso — UNEMAT. CISO-CSFF. All
 rights reserved.

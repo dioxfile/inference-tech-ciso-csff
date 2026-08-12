@@ -130,16 +130,31 @@ and ISO assessments.
 Conceptually:
 
 ``` text
-CIS Controls ──► Hierarchical Fuzzy Assessment ──► CIS Risk
-                                                       │
-                                                       ▼
-                                              Global Fuzzy Assessment
-                                                       │
-                                                       ▼
-                                                  Global Risk
-                                                       ▲
-                                                       │
-ISO/IEC 27002 ───────── Fuzzy Assessment ───────► ISO Risk
+CIS Controls v8.1
+        │
+        ▼
+   Fuzzy Model (CIS)
+        │
+        ▼
+    CIS Risk ─────────────┐
+                          │
+                          ▼
+                   ┌──────────────┐
+                   │ Hybrid Fuzzy │
+                   │    Model     │
+                   └──────┬───────┘
+                          │
+                          ▼
+                     Global Risk
+                          ▲
+                          │
+    ISO Risk ─────────────┘
+        ▲
+        │
+   Fuzzy Model (ISO)
+        ▲
+        │
+ISO/IEC 27002:2022
 ```
 
 This approach enables organizations to obtain framework-specific
